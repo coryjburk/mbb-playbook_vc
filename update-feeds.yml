@@ -1,0 +1,42 @@
+name: Update insight feeds
+
+# Refreshes feeds.json so the playbook shows current headlines.
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # every 6 hours (UTC)
+  workflow_dispatch: {}       # lets you run it manually from the Actions tab
+  push:
+    paths:
+      - "scripts/build_feeds.py"
+      - ".github/workflows/update-feeds.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install feedparser
+
+      - name: Build feeds.json
+        run: python scripts/build_feeds.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "feeds-bot"
+          git config user.email "actions@github.com"
+          if [ -n "$(git status --porcelain feeds.json)" ]; then
+            git add feeds.json
+            git commit -m "chore: refresh insight feeds [skip ci]"
+            git push
+          else
+            echo "No feed changes."
+          fi
