@@ -1,10 +1,9 @@
-# Eccles MBA — Consulting Interview Playbook
+# 🏛️Eccles MBA — Consulting Interview Playbook
 
 A single-file, self-contained MBB consulting interview playbook with a data-driven engine,
 practice tools (voice input, filler-word tracking, AI coaching-prompt generator), a readiness
 dashboard, and a live insight-source library.
 
-# 🏛️ Eccles MBA — Consulting Interview Playbook Ecosystem
 ### Executive Operations & Navigation Manual
 
 Welcome to the central documentation command node for the **Eccles MBA Consulting Interview Playbook Ecosystem**. This platform is engineered specifically for University of Utah David Eccles School of Business MBA candidates and experienced professionals preparing for high-stakes strategic selection rounds at McKinsey, Bain, BCG (MBB), and top-tier boutique groups.
