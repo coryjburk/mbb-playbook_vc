@@ -1,4 +1,4 @@
-# 🏛️Eccles MBA — Consulting Interview Playbook
+# Eccles MBA — Consulting Interview Playbook
 
 A single-file, self-contained MBB consulting interview playbook with a data-driven engine,
 practice tools (voice input, filler-word tracking, AI coaching-prompt generator), a readiness
