@@ -161,7 +161,6 @@ main{padding:40px 0 90px}
 .case .coach{background:var(--gold-tint);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:12px 16px;margin-top:6px}
 .case .flagbox{background:#FBEDED;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:12px 16px;margin-top:6px}
 .case-controls{display:flex;gap:8px;margin:14px 0 0;flex-wrap:wrap}
-.collapsed .case-collapsible{display:none}
 
 /* Tables */
 .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin-bottom:18px}
@@ -2100,18 +2099,18 @@ const LEVELS = [
 
 /* ---- SOURCE LIBRARY (RSS) — verified status reflected; Action refreshes feeds.json ---- */
 const SOURCES = [
-  {key:"mckinsey", name:"McKinsey Insights", site:"https://www.mckinsey.com/featured-insights", feed:true, desc:"Cross-industry strategy, operations, and economics research."},
-  {key:"bcg", name:"BCG Publications", site:"https://www.bcg.com/publications", feed:true, desc:"BCG's latest thinking across industries and capabilities."},
-  {key:"hbr", name:"Harvard Business Review", site:"https://hbr.org", feed:true, desc:"Management ideas, strategy, and leadership."},
-  {key:"hbr_pod", name:"HBR Podcasts (IdeaCast)", site:"https://hbr.org/podcasts", feed:true, desc:"Conversations with leaders and HBR authors."},
-  {key:"sloan", name:"MIT Sloan Management Review", site:"https://sloanreview.mit.edu/", feed:true, desc:"Research-driven management and tech-strategy insight."},
-  {key:"wharton", name:"Knowledge at Wharton", site:"https://knowledge.wharton.upenn.edu/", feed:true, desc:"Business research and analysis from Wharton faculty."},
-  {key:"deloitte", name:"Deloitte Insights", site:"https://www.deloitte.com/us/en/insights.html", feed:true, desc:"Industry, economics, and transformation research."},
-  {key:"bain", name:"Bain Insights", site:"https://www.bain.com/insights/", feed:false, desc:"Strategy and results-oriented research (link-only — no reliable public feed)."},
-  {key:"strategyand", name:"Strategy& (PwC)", site:"https://www.strategyand.pwc.com/", feed:false, desc:"PwC's strategy consulting insights (link-only)."},
-  {key:"ey", name:"EY Insights", site:"https://www.ey.com/en_us/insights", feed:false, desc:"Cross-sector strategy and transactions insight (link-only)."},
-  {key:"kearney", name:"Kearney Insights", site:"https://www.kearney.com/industry/insights", feed:false, desc:"Operations and industry strategy research (link-only)."},
-  {key:"oliverwyman", name:"Oliver Wyman Insights", site:"https://www.oliverwyman.com/our-expertise/insights.html", feed:false, desc:"Financial services and industry strategy (link-only)."}
+  {key:"mckinsey", name:"McKinsey Insights", site:"https://www.mckinsey.com/featured-insights", desc:"Cross-industry strategy, operations, and economics research."},
+  {key:"bcg", name:"BCG Publications", site:"https://www.bcg.com/publications", desc:"BCG's latest thinking across industries and capabilities."},
+  {key:"hbr", name:"Harvard Business Review", site:"https://hbr.org", desc:"Management ideas, strategy, and leadership."},
+  {key:"hbr_pod", name:"HBR Podcasts (IdeaCast)", site:"https://hbr.org/podcasts", desc:"Conversations with leaders and HBR authors."},
+  {key:"sloan", name:"MIT Sloan Management Review", site:"https://sloanreview.mit.edu/", desc:"Research-driven management and tech-strategy insight."},
+  {key:"wharton", name:"Knowledge at Wharton", site:"https://knowledge.wharton.upenn.edu/", desc:"Business research and analysis from Wharton faculty."},
+  {key:"deloitte", name:"Deloitte Insights", site:"https://www.deloitte.com/us/en/insights.html", desc:"Industry, economics, and transformation research."},
+  {key:"bain", name:"Bain Insights", site:"https://www.bain.com/insights/", desc:"Strategy and results-oriented research (link-only — no reliable public feed)."},
+  {key:"strategyand", name:"Strategy& (PwC)", site:"https://www.strategyand.pwc.com/", desc:"PwC's strategy consulting insights (link-only)."},
+  {key:"ey", name:"EY Insights", site:"https://www.ey.com/en_us/insights", desc:"Cross-sector strategy and transactions insight (link-only)."},
+  {key:"kearney", name:"Kearney Insights", site:"https://www.kearney.com/industry/insights", desc:"Operations and industry strategy research (link-only)."},
+  {key:"oliverwyman", name:"Oliver Wyman Insights", site:"https://www.oliverwyman.com/our-expertise/insights.html", desc:"Financial services and industry strategy (link-only)."}
 ];
 
 const FILLERS = ["um","uh","er","ah","like","you know","kind of","sort of","basically","actually","literally","i mean","i guess","right","so yeah","kinda","sorta"];
