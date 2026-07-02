@@ -1,9 +1,16 @@
-# Eccles Career OS — MBA Interview Playbook Series
+# Full-Time MBA Eccles Career OS — MBA Interview Playbook Series
 
 > **Full-Time MBA Program · David Eccles School of Business · MBA Career Coaching**
 > A suite of self-contained, AI-powered interview-preparation tools for MBA students recruiting in finance, consulting, operations, and tech/product.
 
 ---
+
+## Live Link
+
+‘https://coryjburk.github.io/mbb-playbook_vc/’
+
+---
+
 
 ## Table of Contents
 
