@@ -7,7 +7,7 @@
 
 ## Live Link
 
-‘https://coryjburk.github.io/mbb-playbook_vc/’
+[Intv Playbook - MMB (vC)](https://coryjburk.github.io/mbb-playbook_vc/)
 
 ---
 
