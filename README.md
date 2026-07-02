@@ -1,4 +1,4 @@
-# Interview Playbook - MMB Consulting
+# Interview Playbook - MBB Consulting
 
 > **Full-Time MBA Program · David Eccles School of Business · MBA Career Coaching**
 > A suite of self-contained, AI-powered interview-preparation tools for MBA students recruiting in finance, consulting, operations, and tech/product.
@@ -7,7 +7,7 @@
 
 ## Live Link
 
-[Intv Playbook - MMB Consulting (vC)](https://coryjburk.github.io/mbb-playbook_vc/)
+[Intv Playbook - MBB Consulting (vC)](https://coryjburk.github.io/mbb-playbook_vc/)
 
 ---
 
