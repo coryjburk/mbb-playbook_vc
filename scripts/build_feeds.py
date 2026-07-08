@@ -37,9 +37,11 @@ AGENT = (
 OUT_PATH = pathlib.Path(__file__).resolve().parent.parent / "feeds.json"
 
 # key, display name, candidate feed URL(s) tried in order.
-# Verified live as of 2026-07-08: mckinsey (first URL), strategy_simplified.
-# BCG and Deloitte URLs are unverified best-effort attempts; if they fail,
-# the playbook links them directly as fallback and the Action log says so.
+# Verified live (Action run + direct fetch, 2026-07-08): mckinsey (first URL),
+# hbr_pod (harvardbusiness.org URL), sloan, wharton, strategy_simplified.
+# Confirmed NOT working at these URLs as of 2026-07-08 (kept as best-effort;
+# playbook links these sources directly): bcg (returns HTML, not XML),
+# deloitte (HTML page / redirect loop), feeds.hbr.org URLs (TLS rejected).
 SOURCES = [
     ("mckinsey", "McKinsey Insights", [
         "https://www.mckinsey.com/insights/rss",
@@ -50,10 +52,11 @@ SOURCES = [
     ]),
     ("hbr", "Harvard Business Review", [
         "https://feeds.hbr.org/harvardbusiness",
+        "http://feeds.harvardbusiness.org/harvardbusiness",
     ]),
     ("hbr_pod", "HBR Podcasts (IdeaCast)", [
-        "https://feeds.hbr.org/harvardbusiness/ideacast",
         "http://feeds.harvardbusiness.org/harvardbusiness/ideacast",
+        "https://feeds.hbr.org/harvardbusiness/ideacast",
         "https://rss.art19.com/hbr-ideacast",
     ]),
     ("sloan", "MIT Sloan Management Review", [
@@ -67,7 +70,9 @@ SOURCES = [
         "https://www2.deloitte.com/insights/us/en/rss.xml",
     ]),
     # Case-practice audio: live MBB-style case walkthroughs + recruiting intel.
-    # Feed URL verified live 2026-07-08 (Buzzsprout show 1002655).
+    # NOTE: this podcast feed has no per-item <link> (audio is in <enclosure>,
+    # guid is not a URL), so entry_link() below falls back to the enclosure —
+    # clicking a headline opens the episode audio directly.
     ("strategy_simplified", "Strategy Simplified (Case Practice)", [
         "https://feeds.buzzsprout.com/1002655.rss",
         "https://rss.buzzsprout.com/1002655.rss",
@@ -84,6 +89,23 @@ def parse_date(entry):
             except Exception:
                 pass
     return None
+
+
+def entry_link(e):
+    """
+    Best available URL for an entry. Article feeds provide a per-item <link>.
+    Podcast feeds (e.g. Buzzsprout) often provide only an <enclosure> with the
+    audio URL and a non-URL guid — fall back to the enclosure so those items
+    aren't silently dropped.
+    """
+    link = (e.get("link") or "").strip()
+    if link:
+        return link
+    for enc in e.get("enclosures", []) or []:
+        href = (enc.get("href") or "").strip()
+        if href:
+            return href
+    return ""
 
 
 def fetch(urls):
@@ -115,12 +137,21 @@ def fetch(urls):
         items = []
         for e in d.entries[:ITEMS_PER_SOURCE]:
             title = (e.get("title") or "").strip()
-            link = (e.get("link") or "").strip()
+            link = entry_link(e)
             if title and link:
                 items.append({"title": title, "link": link, "date": parse_date(e)})
 
         if items:
             return items, url
+
+        # Parsed without a fatal error but produced no usable items. This path
+        # was previously silent, which hid a real bug — always say why a URL
+        # yielded nothing (HTTP status and entry count point at the cause).
+        print(
+            f"  ! {url}: parsed but 0 usable items "
+            f"(HTTP status={d.get('status')}, entries={len(d.entries)})",
+            file=sys.stderr,
+        )
 
     return [], None
 
