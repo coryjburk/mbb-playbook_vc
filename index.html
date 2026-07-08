@@ -480,7 +480,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;a
   <div class="src-grid" id="srcList"></div>
   <div class="card" style="margin-top:8px"><div class="lab">How the live feed updates</div>
     <div class="kv"><span>Headlines come from a <code>feeds.json</code> file in your GitHub repo. A scheduled
-    GitHub Action refreshes it on its own (every few hours), so the page stays current without any server. If
+    GitHub Action refreshes it on its own (daily), so the page stays current without any server. If
     <code>feeds.json</code> is missing or a publisher's feed is down, this section automatically falls back to
     direct links — it never breaks. Setup instructions ship alongside this file.</span></div></div>
 </div></section>
@@ -2110,7 +2110,7 @@ const SOURCES = [
   {key:"bain", name:"Bain Insights", site:"https://www.bain.com/insights/", desc:"Strategy and results-oriented research (link-only — no reliable public feed)."},
   {key:"strategyand", name:"Strategy& (PwC)", site:"https://www.strategyand.pwc.com/", desc:"PwC's strategy consulting insights (link-only)."},
   {key:"ey", name:"EY Insights", site:"https://www.ey.com/en_us/insights", desc:"Cross-sector strategy and transactions insight (link-only)."},
-  {key:"kearney", name:"Kearney Insights", site:"https://www.kearney.com/industry/insights", desc:"Operations and industry strategy research (link-only)."},
+  {key:"kearney", name:"Kearney Insights", site:"https://www.kearney.com/insights", desc:"Operations and industry strategy research (link-only)."},
   {key:"oliverwyman", name:"Oliver Wyman Insights", site:"https://www.oliverwyman.com/our-expertise/insights.html", desc:"Financial services and industry strategy (link-only)."}
 ];
 
