@@ -442,6 +442,5 @@ If a question answer is outdated, a framework needs updating, or a new case type
 
 ---
 
-*Built and maintained by the Eccles MBA Career Coaching team.*
-*David Eccles School of Business · University of Utah*
-*Repository: [github.com/coryjburk/eccles-career-os](https://github.com/coryjburk/eccles-career-os)*
+_Developed by Cory Burk, Senior Manager, Program Management · Full-Time MBA Program · David Eccles School of Business.
+© 2026 University of Utah, David Eccles School of Business. All rights reserved. _
