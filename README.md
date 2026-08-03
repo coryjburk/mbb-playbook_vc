@@ -5,9 +5,7 @@
 
 ---
 
-## Live Link
-
-[Intv Playbook - MBB Consulting (vC)](https://coryjburk.github.io/mbb-playbook_vc/)
+**▶ Live tool:**  **[Intv Playbook - MBB Consulting (vC)](https://coryjburk.github.io/mbb-playbook_vc/)**
 
 ---
 
